@@ -61,7 +61,7 @@ Index.getInitialProps = async context => {
   const page = +context.query.page || 1;
 
   const res = await Fetch(
-    `https://newsapi.org/v2/top-headlines?country=us&apiKey=baf3b32ef95d4cd0803dcc5d7a5bf9b1&page=${page}&pageSize=10&from=2020-06-15&sortBy=publishedAt&language=en`,
+    `https://newsapi.org/v2/top-headlines?country=us&apiKey=baf3b32ef95d4cd0803dcc5d7a5bf9b1&page=${page}&pageSize=10&sortBy=publishedAt&language=en`,
   );
   const posts = await res.json();
   const postsCount = posts.totalResults;

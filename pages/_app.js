@@ -1,6 +1,8 @@
-import Router from "next/router";
-
+import { Provider } from 'mobx-react'
+import Router from 'next/router';
+import { useNewsStore } from '../mobx/newsContext'
 export default function App({ Component, pageProps }) {
+  const store = useNewsStore(pageProps.initialState)
   Router.events.on("routeChangeComplete", () => {
     if (process.env.NODE_ENV !== "production") {
       const els = document.querySelectorAll(
@@ -10,5 +12,9 @@ export default function App({ Component, pageProps }) {
       els[0].href = "/_next/static/css/styles.chunk.css?v=" + timestamp;
     }
   });
-  return <Component {...pageProps} />;
+  return (
+    <Provider store={useNewsStore}>
+      <Component {...pageProps} />
+    </Provider>
+  )
 }

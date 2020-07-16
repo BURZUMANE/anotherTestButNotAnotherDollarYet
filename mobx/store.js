@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Fetch from "isomorphic-unfetch";
 
 export const createNewsStore =  () => {
+  
   return {
 
     news: [{title:"asdasas"}],
